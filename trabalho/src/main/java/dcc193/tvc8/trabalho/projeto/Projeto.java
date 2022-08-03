@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Projeto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) 
     Long id;
 
     public Long getId() {
