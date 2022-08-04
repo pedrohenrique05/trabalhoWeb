@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Cadastro de Projeto')" />
+
+<body>
+
+    <header th:replace="layout-padrao"/>
+    
+    
+    <center><h1 th:text="${mensagem}"></h1></center>
+
+    <h1>Novo Projeto</h1>
+    <form th:action="@{./cadastrar.html}" th:object="${projeto}" method="post">
+        
+        <div>
+            <label for="titulo">Titulo</label>
+            <input type="text" id="titulo" th:field="*{titulo}"/>
+        </div>
+        
+        
+        <div>
+            <input type="submit"/>
+        </div>
+    </form>
+    
+</body>
+
+</html>

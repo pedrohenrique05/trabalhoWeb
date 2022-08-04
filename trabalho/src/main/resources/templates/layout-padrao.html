@@ -11,15 +11,21 @@
 
 <body>
     <header th:fragment="header (titulo)">
-        <h1>Trabalho</h1>
+        
         <h2 th:text="${titulo}">Layout Padrão</h2>
         <nav>
             <ul>
                 <li>
-                    <a th:href="@{/projeto/index.html}">Projeto</a>
+                    <a th:href="@{/index.html}">Inicio</a>
                 </li>
                 <li>
-                    <a th:href="@{/avaliacao/index.html}">Avaliação</a>
+                    <a th:href="@{/projeto/index.html}">Cadastrar projeto</a>
+                </li>
+                <li>
+                    <a th:href="@{/avaliacao/cadastro.html}">Cadastrar avaliação</a>
+                </li>
+                <li>
+                    <a th:href="@{/relatorio/relatorioListar.html}">Listar relatórios</a>
                 </li>
             </ul>
         </nav>
