@@ -11,7 +11,7 @@ public class ControllerGeral {
     @RequestMapping({ "/", "/index.html" })
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("geral-index");
-        mv.addObject("mensagem", "Ola Mundo");
+        mv.addObject("mensagem", "Sistema de cadastro de PROJETO!");
         return mv;
     }
 }
