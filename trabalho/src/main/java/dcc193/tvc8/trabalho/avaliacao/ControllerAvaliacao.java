@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/avaliacao")
 public class ControllerAvaliacao {
-    @RequestMapping("cadastro.html")
+    @RequestMapping({"/","cadastro.html"})
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("avaliacao-cadastro");
         mv.addObject("mensagem", "Cadastro de Avaliação!");

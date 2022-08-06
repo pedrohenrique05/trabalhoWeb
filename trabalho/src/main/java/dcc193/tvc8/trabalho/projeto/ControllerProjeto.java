@@ -1,6 +1,7 @@
 package dcc193.tvc8.trabalho.projeto;
 
 
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -21,12 +22,13 @@ public class ControllerProjeto {
     @Autowired
     private RepositoryProjeto rep;
 
-    @RequestMapping("/index.html")
+    @RequestMapping({"/","/index.html"})
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("projeto-index");
         mv.addObject("mensagem", "Cadastro de Projeto!");
         return mv;
     }
+
 
     @GetMapping("/cadastrar.html")
     public ModelAndView novaGET() {
@@ -35,18 +37,20 @@ public class ControllerProjeto {
         mv.addObject("projeto", pro);
         return mv;
     }
-
+    
     @PostMapping("/cadastrar.html")
     public ModelAndView novaPOST(@Valid Projeto pro, BindingResult binding) {
         ModelAndView mv = new ModelAndView("projeto-cadastro");
         if (binding.hasErrors()) {
             mv.setViewName("projeto-cadastro.html");
             mv.addObject("projeto", pro);
+            System.out.println("Erro"); 
             return mv;
         }
         rep.save(pro);
         mv.addObject("projeto", pro);
-        mv.setViewName("redirect:./listar.html");
+        mv.setViewName("redirect:listar.html");
+        System.out.println("Funcionou");
         return mv;
     }
 
@@ -54,7 +58,7 @@ public class ControllerProjeto {
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("projeto-listar");
         List<Projeto> pro = rep.findAll();
-        mv.addObject("projetos", pro);
+        mv.addObject("projeto", pro);
         return mv;
     }
     @RequestMapping("editar.html")
