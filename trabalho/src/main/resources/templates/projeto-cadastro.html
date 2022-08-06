@@ -8,16 +8,16 @@
     <header th:replace="layout-padrao"/>
     
     
-    <center><h1 th:text="${mensagem}"></h1></center>
+    <center><h1 th:text="${projeto}"></h1></center>
 
-    <h1>Novo Projeto</h1>
-    <form th:action="@{./cadastrar.html}" th:object="${projeto}" method="post">
+    <center><h1>Novo Projeto</h1></center>
+    <form th:action="@{./cadastrar.html}" method="post" th:object="${projeto}" >
         
         <div>
-            <label for="titulo">Titulo</label>
-            <input type="text" id="titulo" th:field="*{titulo}"/>
+            <label>Observação</label>
+            <input type="text" th:field="${projeto.obs}"/>
+
         </div>
-        
         
         <div>
             <input type="submit"/>

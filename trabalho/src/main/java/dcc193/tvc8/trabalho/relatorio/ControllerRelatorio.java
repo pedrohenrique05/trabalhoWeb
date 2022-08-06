@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/relatorio")
 public class ControllerRelatorio {
  
-    @RequestMapping("relatorioListar.html")
+    @RequestMapping({"/","relatorioListar.html"})
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("relatorio-listar");
         mv.addObject("mensagem", "Relatórios cadastrados!");

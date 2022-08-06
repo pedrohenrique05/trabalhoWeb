@@ -21,8 +21,8 @@ public class Projeto {
     @NotBlank(message = "É preciso uma descrição do projeto")
     private String obs;
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE) 
-    Long id;
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long id; 
 
 
     
@@ -98,6 +98,12 @@ public class Projeto {
         this.obs = obs;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Projeto [id=" + id + ", obs=" + obs + ", titulo=" + titulo + ", urlPerfil=" + urlPerfil
+                + ", urlRepositorio=" + urlRepositorio + "]";
+    }
+
+        
     
 }
