@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout-padrao::head(titulo='Edição de Escala')" />
+<head th:replace="layout-padrao::head(titulo='Cadastro de Escala')" />
 
 <body>
-
+        
     <header th:replace="layout-padrao" />
-    
-    <center><h1>Edição de Escala!</h1></center>
 
-    <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${escala}">
-        <input type="hidden"  th:field="*{id}"/>
+    <center><h1>Cadastro de Observação</h1></center>
+    <form th:action="@{cadastrar.html}" method="post" th:object="${observacao}" >
         <table>
             <tr>
                 <td>
@@ -23,7 +21,7 @@
             </tr>
             <tr>
                 <td>
-                    URL de Descrição
+                    URL descrição
                 </td>
                 <td>
                     <input type="url" th:field="*{urlDescricao}"/>
@@ -32,12 +30,11 @@
             </tr>
             <tr>
                 <td>
-                   GOOD<INPUT TYPE="RADIO" th:field="*{good}" NAME="OPCAO" VALUE="1"/>
-                    <strong th:if="${#fields.hasErrors('good')}" th:erros="*{good}"></strong> 
+                    Escala
                 </td>
                 <td>
-                    BadSmells<INPUT TYPE="RADIO" th:field="*{badSmells}" NAME="OPCAO" VALUE="1"/>
-                    <strong th:if="${#fields.hasErrors('badSmells')}" th:erros="*{badSmells}"></strong>
+                    <INPUT TYPE="text" th:field="*{esc}"/>
+                    <strong th:if="${#fields.hasErrors('esc')}" th:erros="*{esc}"></strong> 
                 </td>
             </tr>
             <tr>
@@ -49,7 +46,6 @@
             </tr>
         </table>
     </form>
-    
 </body>
 
 </html>

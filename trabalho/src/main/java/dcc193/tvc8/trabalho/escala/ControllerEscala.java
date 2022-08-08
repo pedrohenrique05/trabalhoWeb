@@ -42,13 +42,11 @@ public class ControllerEscala {
         if (binding.hasErrors()) {
             mv.setViewName("escala-cadastro.html");
             mv.addObject("escala", esc);
-            System.out.println("erro");
             return mv;
         }
         rep.save(esc);
         mv.addObject("escala", esc);
         mv.setViewName("redirect:listar.html");
-        System.out.println("funcionou");
         return mv;
     }
 

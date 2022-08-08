@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout-padrao::head(titulo='Edição de Escala')" />
+<head th:replace="layout-padrao::head(titulo='Edição de Observação')" />
 
 <body>
 
     <header th:replace="layout-padrao" />
     
-    <center><h1>Edição de Escala!</h1></center>
+    <center><h1>Edição de Observação!</h1></center>
 
-    <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${escala}">
+    <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${observacao}">
         <input type="hidden"  th:field="*{id}"/>
         <table>
             <tr>
@@ -32,12 +32,11 @@
             </tr>
             <tr>
                 <td>
-                   GOOD<INPUT TYPE="RADIO" th:field="*{good}" NAME="OPCAO" VALUE="1"/>
-                    <strong th:if="${#fields.hasErrors('good')}" th:erros="*{good}"></strong> 
+                    Escala
                 </td>
                 <td>
-                    BadSmells<INPUT TYPE="RADIO" th:field="*{badSmells}" NAME="OPCAO" VALUE="1"/>
-                    <strong th:if="${#fields.hasErrors('badSmells')}" th:erros="*{badSmells}"></strong>
+                    <INPUT TYPE="text" th:field="*{esc}"/>
+                    <strong th:if="${#fields.hasErrors('esc')}" th:erros="*{esc}"></strong> 
                 </td>
             </tr>
             <tr>

@@ -6,6 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+
+
+
 @Entity
 public class Escala {
     
@@ -58,11 +61,9 @@ public class Escala {
     public Escala(Long id, @NotBlank(message = "E preciso um nome!") String nome) {
         this(id,nome,null,null,null);
     }
-
     
-
     public Escala(Long id) {
-        this(id,null,null,null,null;)
+        this(id,null,null,null,null);
     }
 
     public Escala(){
