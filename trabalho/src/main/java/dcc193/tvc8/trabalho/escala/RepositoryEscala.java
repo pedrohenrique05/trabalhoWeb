@@ -1,9 +1,9 @@
-package dcc193.tvc8.trabalho.avaliacao;
+package dcc193.tvc8.trabalho.escala;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RepositoryAvaliacao extends JpaRepository<Avaliacao, Long> {
+public interface RepositoryEscala extends JpaRepository<Escala, Long> {
     
 }

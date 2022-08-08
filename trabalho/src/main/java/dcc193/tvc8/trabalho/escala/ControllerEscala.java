@@ -1,4 +1,4 @@
-package dcc193.tvc8.trabalho.avaliacao;
+package dcc193.tvc8.trabalho.escala;
 
 import javax.validation.Valid;
 
@@ -11,37 +11,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/avaliacao")
-public class ControllerAvaliacao {
+@RequestMapping("/escala")
+public class ControllerEscala {
 
     @Autowired
-    private RepositoryAvaliacao rep;
+    private RepositoryEscala rep;
     
     @RequestMapping({"/","index.html"})
     public ModelAndView index() {
-        ModelAndView mv = new ModelAndView("avaliacao-index");
-        mv.addObject("mensagem", "Cadastro de Avaliação!");
+        ModelAndView mv = new ModelAndView("escala-index");
+        mv.addObject("mensagem", "Cadastro de Escala!");
         return mv;
     }
 
     @GetMapping("/cadastrar.html")
     public ModelAndView novaGET() {
-        ModelAndView mv = new ModelAndView("avaliacao-cadastro");
-        Avaliacao aval = new Avaliacao();
-        mv.addObject("avaliacao", aval);
+        ModelAndView mv = new ModelAndView("escala-cadastro");
+        Escala esc = new Escala();
+        mv.addObject("escala", esc);
         return mv;
     }
     
     @PostMapping("/cadastrar.html")
-    public ModelAndView novaPOST(@Valid Avaliacao aval, BindingResult binding) {
-        ModelAndView mv = new ModelAndView("avaliacao-cadastro");
+    public ModelAndView novaPOST(@Valid Escala esc, BindingResult binding) {
+        ModelAndView mv = new ModelAndView("escala-cadastro");
         if (binding.hasErrors()) {
-            mv.setViewName("avaliacao-cadastro.html");
-            mv.addObject("avaliacao", aval);
+            mv.setViewName("escala-cadastro.html");
+            mv.addObject("escala", esc);
             return mv;
         }
-        rep.save(aval);
-        mv.addObject("avaliacao", aval);
+        rep.save(esc);
+        mv.addObject("escala", esc);
         mv.setViewName("redirect:listar.html");
         
         return mv;

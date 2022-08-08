@@ -1,4 +1,4 @@
-package dcc193.tvc8.trabalho.avaliacao;
+package dcc193.tvc8.trabalho.escala;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Avaliacao {
+public class Escala {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
