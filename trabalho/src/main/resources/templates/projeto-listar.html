@@ -8,7 +8,36 @@
     <header th:replace="layout-padrao" />
     
     
-    <center><h1 th:text="${mensagem}"></h1></center>
+    <center><h1>Listagem de Projeto</h1></center>
+
+    <table border="">
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                Titulo
+            </td>
+            <td>
+                Observação                
+            </td>
+            <td>
+                URL do Perfil
+            </td>
+            <td>
+                URL do Repositorio                
+            </td>
+        </tr>
+        <tr th:each="projeto: ${projetos}" th:object="${projeto}">
+            <td th:text="*{id}"></td>
+            <th th:text="*{obs}"></th>
+            <th th:text="*{titulo}"></th>
+            <th th:text="*{urlPerfil}"></th>
+            <th th:text="*{urlRepositorio}"></th>
+            <th><a th:href="@{./editar/{id}(id=*{id})}">Editar</a></th>
+            <th><a th:href="@{./excluir/{id}(id=*{id})}">Excluir</a></th>
+        </tr>
+    </table>
     
 </body>
 
