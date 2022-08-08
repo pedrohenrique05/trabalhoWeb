@@ -1,9 +1,9 @@
-package dcc193.tvc8.trabalho.relatorio;
+package dcc193.tvc8.trabalho.escala;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RepositoryRelatorio extends JpaRepository<Relatorio, Long> {
+public interface RepositoryEscala extends JpaRepository<Escala, Long> {
     
 }

@@ -21,7 +21,7 @@ public class Projeto {
     @NotBlank(message = "É preciso uma descrição do projeto")
     private String obs;
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; 
 
 
@@ -66,11 +66,11 @@ public class Projeto {
         this.id = id;
     }
 
-    public String getNome() {
+    public String getTitulo() {
         return titulo;
     }
 
-    public void setNome(String titulo) {
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 

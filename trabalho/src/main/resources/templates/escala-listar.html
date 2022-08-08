@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout-padrao::head(titulo='Listagem de Projeto(s)')" />
+<head th:replace="layout-padrao::head(titulo='Listagem de Escala(s)')" />
 
 <body>
 
     <header th:replace="layout-padrao" />
     
-    
-    <center><h1>Listagem de Projeto</h1></center>
+    <center><h1>Listagem de Escalas</h1></center>
 
     <table border="">
         <tr>
@@ -16,24 +15,24 @@
                 ID
             </td>
             <td>
-                Titulo
+                Nome
             </td>
             <td>
-                Observação                
+                URL de descrição                
             </td>
             <td>
-                URL do Perfil
+                Good
             </td>
             <td>
-                URL do Repositorio                
+                Bad Smells                
             </td>
         </tr>
-        <tr th:each="projeto: ${projetos}" th:object="${projeto}">
+        <tr th:each="escala: ${escalas}" th:object="${escala}">
             <td th:text="*{id}"></td>
-            <th th:text="*{obs}"></th>
-            <th th:text="*{titulo}"></th>
-            <th th:text="*{urlPerfil}"></th>
-            <th th:text="*{urlRepositorio}"></th>
+            <th th:text="*{nome}"></th>
+            <th th:text="*{urlDescricao}"></th>
+            <th th:text="*{good}"></th>
+            <th th:text="*{badSmells}"></th>
             <th><a th:href="@{./editar/{id}(id=*{id})}">Editar</a></th>
             <th><a th:href="@{./excluir/{id}(id=*{id})}">Excluir</a></th>
         </tr>

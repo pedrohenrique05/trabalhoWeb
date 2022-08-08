@@ -8,20 +8,55 @@
     <header th:replace="layout-padrao"/>
     
     
-    <center><h1 th:text="${projeto}"></h1></center>
+    
 
     <center><h1>Novo Projeto</h1></center>
-    <form th:action="@{./cadastrar.html}" method="post" th:object="${projeto}" >
-        
-        <div>
-            <label>Observação</label>
-            <input type="text" th:field="${projeto.obs}"/>
-
-        </div>
-        
-        <div>
-            <input type="submit"/>
-        </div>
+    <form th:action="@{cadastrar.html}" method="post" th:object="${projeto}" >
+        <table>
+            <tr>
+                <td>
+                    Titulo
+                </td>
+                <td>
+                    <input type="text" th:field="*{titulo}"/>
+                    <strong th:if="${#fields.hasErrors('titulo')}" th:erros="*{titulo}"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Observação
+                </td>
+                <td>
+                    <input type="text" th:field="*{obs}"/>
+                    <strong th:if="${#fields.hasErrors('obs')}" th:erros="*{obs}"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    URL do Perfil
+                </td>
+                <td>
+                    <input type="url" th:field="*{urlPerfil}"/>
+                    <strong th:if="${#fields.hasErrors('urlPerfil')}" th:erros="*{urlPerfil}"></strong>                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    URL do Repositorio
+                </td>
+                <td>
+                    <input type="url" th:field="*{urlRepositorio}"/>
+                    <strong th:if="${#fields.hasErrors('urlRepositorio')}" th:erros="*{urlRepositorio}"></strong>                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <center>
+                        <input type="submit"/>
+                    </center>
+                </td>
+            </tr>
+        </table>
     </form>
     
 </body>
