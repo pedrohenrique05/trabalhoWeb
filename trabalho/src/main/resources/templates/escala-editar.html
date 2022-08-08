@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="layout-padrao::head(titulo='Cadastro de Escala')" />
+<head th:replace="layout-padrao::head(titulo='Edição de Escala')" />
 
 <body>
 
     <header th:replace="layout-padrao" />
-
-    <center><h1 th:text="${escala}"></h1></center>
     
-    <form th:action="@{cadastrar.html}" method="post" th:object="${escala}" >
+    <center><h1>Edição de Escala!</h1></center>
+
+    <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${escala}">
+        <input type="hidden"  th:field="*{id}"/>
         <table>
             <tr>
                 <td>
@@ -22,7 +23,7 @@
             </tr>
             <tr>
                 <td>
-                    URL descrição
+                    URL de Descrição
                 </td>
                 <td>
                     <input type="url" th:field="*{urlDescricao}"/>
@@ -31,7 +32,7 @@
             </tr>
             <tr>
                 <td>
-                    GOOD<INPUT TYPE="RADIO" th:field="*{good}" NAME="OPCAO" VALUE="1" CHECKED>
+                   GOOD<INPUT TYPE="RADIO" th:field="*{good}" NAME="OPCAO" VALUE="1">
                     <strong th:if="${#fields.hasErrors('good')}" th:erros="*{good}"></strong> 
                 </td>
                 <td>
@@ -48,6 +49,7 @@
             </tr>
         </table>
     </form>
+    
 </body>
 
 </html>
