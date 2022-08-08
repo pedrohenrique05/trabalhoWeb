@@ -1,4 +1,4 @@
-package dcc193.tvc8.trabalho.relatorio;
+package dcc193.tvc8.trabalho.Observacao;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Relatorio {
+public class Observacao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
