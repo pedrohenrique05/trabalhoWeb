@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 
 
-import dcc193.tvc8.trabalho.escala.Escala;
+//import dcc193.tvc8.trabalho.escala.Escala;
 
 
 
