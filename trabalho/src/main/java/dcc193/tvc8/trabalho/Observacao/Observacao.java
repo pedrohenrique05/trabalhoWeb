@@ -4,9 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import dcc193.tvc8.trabalho.escala.Escala;
 
@@ -27,7 +27,8 @@ public class Observacao {
     @NotBlank(message = "E preciso a url para a sua descrição!")
     String urlDescricao;
     @NotBlank(message = "E preciso uma única escala a que pertence!")
-    @Autowired
+    @OneToMany
+    @ManyToOne
     Escala esc;
     //Escala esc ;
 

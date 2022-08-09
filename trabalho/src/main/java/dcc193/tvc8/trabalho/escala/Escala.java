@@ -6,15 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 
 
 
 @Entity
-@Component
-@Scope("prototype")
 public class Escala {
     
     @Id
@@ -27,7 +23,7 @@ public class Escala {
     @NotBlank(message = "E preciso a url para a sua descrição!")
     String urlDescricao;
 
-
+    
     Boolean good;
 
 
