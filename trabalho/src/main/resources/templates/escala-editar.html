@@ -32,12 +32,10 @@
             </tr>
             <tr>
                 <td>
-                   GOOD<INPUT TYPE="RADIO" th:field="*{good}" NAME="OPCAO" VALUE="1"/>
-                    <strong th:if="${#fields.hasErrors('good')}" th:erros="*{good}"></strong> 
+                    <input type="hidden"  th:field="*{good}"/>
                 </td>
                 <td>
-                    BadSmells<INPUT TYPE="RADIO" th:field="*{badSmells}" NAME="OPCAO" VALUE="1"/>
-                    <strong th:if="${#fields.hasErrors('badSmells')}" th:erros="*{badSmells}"></strong>
+                    <input type="hidden"  th:field="*{badSmells}"/>
                 </td>
             </tr>
             <tr>

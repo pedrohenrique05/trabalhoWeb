@@ -23,7 +23,7 @@ public class Escala {
     @NotBlank(message = "E preciso a url para a sua descrição!")
     String urlDescricao;
 
-
+    
     Boolean good;
 
 

@@ -8,7 +8,7 @@
     <header th:replace="layout-padrao" />
 
     <center><h1>Cadastro de Escala</h1></center>
-    
+    <center><h1 th:text="${escala}"></h1></center>
     <form th:action="@{cadastrar.html}" method="post" th:object="${escala}" >
         <table>
             <tr>
@@ -16,7 +16,7 @@
                     Nome
                 </td>
                 <td>
-                    <input type="text" th:field="*{nome}"/>
+                    <input type="text" th:field="*{nome}"/> 
                     <strong th:if="${#fields.hasErrors('nome')}" th:erros="*{nome}"></strong>
                 </td>
             </tr>
@@ -31,11 +31,19 @@
             </tr>
             <tr>
                 <td>
-                    GOOD<INPUT TYPE="RADIO" th:field="*{good}" NAME="OPCAO" VALUE="1" CHECKED/>
+                    GOOD
+                    <select th:field="*{good}">
+                        <option th:field="*{good}" value="true">Sim</option>
+                        <option th:field="*{good}" value="false" >Não</option>
+                    </select>
                     <strong th:if="${#fields.hasErrors('good')}" th:erros="*{good}"></strong> 
                 </td>
                 <td>
-                    BadSmells<INPUT TYPE="RADIO" th:field="*{badSmells}" NAME="OPCAO" VALUE="1"/>
+                    BadSmells
+                    <select th:field="*{badSmells}">
+                        <option th:field="*{badSmells}" value="false">Não</option>
+                        <option th:field="*{badSmells}" value="true">Sim</option>
+                    </select>
                     <strong th:if="${#fields.hasErrors('badSmells')}" th:erros="*{badSmells}"></strong>
                 </td>
             </tr>
