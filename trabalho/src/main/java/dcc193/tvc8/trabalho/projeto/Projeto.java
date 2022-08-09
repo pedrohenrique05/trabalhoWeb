@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public class Projeto {
 
-    @NotBlank(message = "E preciso um nome!")
+    @NotBlank(message = "E preciso um titulo!")
     private String titulo;
 
     @NotBlank(message = "E preciso a url do repositorio!")

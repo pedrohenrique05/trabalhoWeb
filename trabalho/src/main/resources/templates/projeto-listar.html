@@ -30,8 +30,8 @@
         </tr>
         <tr th:each="projeto: ${projetos}" th:object="${projeto}">
             <td th:text="*{id}"></td>
-            <th th:text="*{obs}"></th>
             <th th:text="*{titulo}"></th>
+            <th th:text="*{obs}"></th>
             <th th:text="*{urlPerfil}"></th>
             <th th:text="*{urlRepositorio}"></th>
             <th><a th:href="@{./editar/{id}(id=*{id})}">Editar</a></th>
