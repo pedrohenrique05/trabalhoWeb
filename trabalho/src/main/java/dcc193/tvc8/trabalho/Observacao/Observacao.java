@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import dcc193.tvc8.trabalho.escala.Escala;
+
 
 
 //import dcc193.tvc8.trabalho.escala.Escala;
@@ -23,13 +27,14 @@ public class Observacao {
     @NotBlank(message = "E preciso a url para a sua descrição!")
     String urlDescricao;
     @NotBlank(message = "E preciso uma única escala a que pertence!")
-    String esc;
+    @Autowired
+    Escala esc;
     //Escala esc ;
 
     
     public Observacao(Long id, @NotBlank(message = "E preciso um nome!") String nome,
             @NotBlank(message = "E preciso a url para a sua descrição!") String urlDescricao,
-            @NotBlank(message = "E preciso uma única escala a que pertence!") String esc) {
+            @NotBlank(message = "E preciso uma única escala a que pertence!") Escala esc) {
         this.id = id;
         this.nome = nome;
         this.urlDescricao = urlDescricao;
@@ -77,11 +82,11 @@ public class Observacao {
         this.urlDescricao = urlDescricao;
     }
 
-    public String getEsc() {
+    public Escala getEsc() {
         return esc;
     }
 
-    public void setEsc(String esc) {
+    public void setEsc(Escala esc) {
         this.esc = esc;
     }
 

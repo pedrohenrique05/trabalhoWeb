@@ -6,10 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 
 
 
 @Entity
+@Component
+@Scope("prototype")
 public class Escala {
     
     @Id
