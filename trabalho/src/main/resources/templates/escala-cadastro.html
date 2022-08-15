@@ -8,8 +8,7 @@
     <header th:replace="layout-padrao" />
 
     <center><h1>Cadastro de Escala</h1></center>
-    <center><h1 th:text="${escala}"></h1></center>
-    <form th:action="@{cadastrar.html}" method="post" th:object="${escala}" >
+    <form th:action="@{cadastrarescala.html}" method="post" th:object="${escala}" >
         <table>
             <tr>
                 <td>

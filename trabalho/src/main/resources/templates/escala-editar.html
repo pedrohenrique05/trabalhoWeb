@@ -9,7 +9,7 @@
     
     <center><h1>Edição de Escala!</h1></center>
 
-    <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${escala}">
+    <form th:action="@{../editarescala/{id}(id=*{id})}" method="post" th:object="${escala}">
         <input type="hidden"  th:field="*{id}"/>
         <table>
             <tr>

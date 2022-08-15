@@ -34,8 +34,9 @@
             <th th:text="*{obs}"></th>
             <th th:text="*{urlPerfil}"></th>
             <th th:text="*{urlRepositorio}"></th>
-            <th><a th:href="@{./editar/{id}(id=*{id})}">Editar</a></th>
-            <th><a th:href="@{./excluir/{id}(id=*{id})}">Excluir</a></th>
+            <th><a th:href="@{./cadastrarObservacaoProjeto/{id}(id=*{id})}">+Observação</a></th>
+            <th><a th:href="@{./editarprojeto/{id}(id=*{id})}">Editar</a></th>
+            <th><a th:href="@{./excluirprojeto/{id}(id=*{id})}">Excluir</a></th>
         </tr>
     </table>
     

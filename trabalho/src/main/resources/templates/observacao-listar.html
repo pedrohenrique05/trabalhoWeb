@@ -21,6 +21,9 @@
                 URL de descrição                
             </td>
             <td>
+                ID PROJETO
+            </td>
+            <td>
                 Escala
             </td>
         </tr>
@@ -28,9 +31,10 @@
             <td th:text="*{id}"></td>
             <th th:text="*{nome}"></th>
             <th th:text="*{urlDescricao}"></th>
+            <th th:text="*{idProjeto}"></th>
             <th th:text="*{esc}"></th>
-            <th><a th:href="@{./editar/{id}(id=*{id})}">Editar</a></th>
-            <th><a th:href="@{./excluir/{id}(id=*{id})}">Excluir</a></th>
+            <th><a th:href="@{./editarobservacao/{id}(id=*{id})}">Editar</a></th>
+            <th><a th:href="@{./excluirobservacao/{id}(id=*{id})}">Excluir</a></th>
         </tr>
     </table>
     

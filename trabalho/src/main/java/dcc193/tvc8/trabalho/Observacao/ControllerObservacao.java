@@ -3,6 +3,8 @@ package dcc193.tvc8.trabalho.Observacao;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import dcc193.tvc8.trabalho.escala.ControllerEscala;
+import dcc193.tvc8.trabalho.escala.Escala;
+//import dcc193.tvc8.trabalho.escala.RepositoryEscala;
+
 @Controller
 @RequestMapping("/observacao")
 public class ControllerObservacao {
- 
+    @OneToMany
+    @ManyToOne
+    private ControllerEscala controlEsc = new ControllerEscala();
+   // @Autowired
+    //private RepositoryEscala repEsc;
+    @OneToMany
+    @ManyToOne
+    private Escala esc;
     @Autowired
     private RepositoryObservacao rep;
     
@@ -54,10 +67,12 @@ public class ControllerObservacao {
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("observacao-listar");
         List<Observacao> obs = rep.findAll();
+        
+        mv = listarEscala("observacoes",obs);
         mv.addObject("observacoes", obs);
         return mv;
     }
-    
+
     @GetMapping("/editar/{id}")
     public ModelAndView editarGET(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView("observacao-editar");
@@ -98,6 +113,29 @@ public class ControllerObservacao {
             Observacao obs = observacaoExcluir.get();
             rep.delete(obs);
         }
+        return mv;
+    }
+
+    
+    public ModelAndView listarEscala(String observacoes, List<Observacao> obs) {
+        ModelAndView mv = new ModelAndView("observacao-listar");
+        System.out.println("instanciou");
+        mv.setViewName("redirect:../escala/listarObs.html");
+        
+        //List<Escala> esc = repEsc.findAll();
+        //mv.addObject("escalas", esc);
+        return mv;
+    }
+
+    @RequestMapping({"/listarEscala.html"})
+    public ModelAndView listarEscalaAux() {
+        ModelAndView mv = new ModelAndView("observacao-listar");
+        System.out.println("instanciou");
+        mv.addObject("escalas", esc);
+        //mv.setViewName("redirect:../escala/listarObs.html");
+        
+        //List<Escala> esc = repEsc.findAll();
+        //mv.addObject("escalas", esc);
         return mv;
     }
 }

@@ -32,3 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 derby.log
+derby.log
+derby.log
+derby.log
+target/database.db/log/log.ctrl
+target/database.db/log/logmirror.ctrl

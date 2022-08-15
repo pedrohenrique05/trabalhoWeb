@@ -8,8 +8,18 @@
     <header th:replace="layout-padrao" />
 
     <center><h1>Cadastro de Observação</h1></center>
-    <form th:action="@{cadastrar.html}" method="post" th:object="${observacao}" >
+    <form th:action="@{/cadastrarobservacao.html/{id}(id=*{id})}" method="post" th:object="${observacao}" >
+        
+        
         <table>
+            <tr>
+                <td>
+                    ID Projeto
+                </td>
+                <td>
+                    <input type="number" id="idProjeto" th:field="*{idProjeto}" readonly />
+                </td>
+            </tr>
             <tr>
                 <td>
                     Nome
@@ -33,8 +43,14 @@
                     Escala
                 </td>
                 <td>
-                    <INPUT TYPE="number" th:field="*{esc}"/>
-                    <strong th:if="${#fields.hasErrors('esc')}" th:erros="*{esc}"></strong> 
+                    <select  th:field="*{esc}">
+                        <option
+                        th:each="s : ${escalas}" 
+                        th:value="${s.id}"
+                        th:text="${s.nome}"
+                        ></option>
+                    </select>
+                    
                 </td>
             </tr>
             <tr>

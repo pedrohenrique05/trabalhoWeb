@@ -10,7 +10,7 @@
     
     <center><h1>Edição do Projeto!</h1></center>
 
-    <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${projeto}">
+    <form th:action="@{../editarprojeto/{id}(id=*{id})}" method="post" th:object="${projeto}">
         <input type="hidden"  th:field="*{id}"/>
         <table>
             <tr>
