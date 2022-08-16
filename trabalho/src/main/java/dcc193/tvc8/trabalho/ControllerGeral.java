@@ -111,6 +111,25 @@ public class ControllerGeral {
         }
         return mv;
     }
+
+    @GetMapping(path = "/detalharProjeto/{id}")
+    public ModelAndView listarProjetoDetalhado(@PathVariable Long id) {
+        ModelAndView mv = new ModelAndView("projeto-listar");
+        //ObservacaoGeral obs = new ObservacaoGeral();
+        List<ObservacaoGeral> obs = repObs.listarObservacoes(id);
+        if(obs.size() == 0){
+            mv.addObject("observacoes", obs);
+            //List<ProjetoGeral> pro = repProj.findAll();
+            //mv.addObject("projetos", pro);
+            return mv;    
+        }else{
+            mv.setViewName("redirect:../listarprojeto.html");
+            return mv;
+        }
+        
+    }
+
+
     
     /**
      * Controller CRUD Escala

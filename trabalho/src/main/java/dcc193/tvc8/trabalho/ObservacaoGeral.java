@@ -1,15 +1,15 @@
 package dcc193.tvc8.trabalho;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+//import javax.persistence.ManyToOne;
 
 import javax.validation.constraints.NotBlank;
 
-import dcc193.tvc8.trabalho.escala.Escala;
+//import dcc193.tvc8.trabalho.escala.Escala;
 
 @Entity
 public class ObservacaoGeral {
