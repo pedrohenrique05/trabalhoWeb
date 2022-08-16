@@ -10,35 +10,43 @@
     
     <center><h1>Listagem de Projeto</h1></center>
 
-    <table border="">
-        <tr>
-            <td>
-                ID
-            </td>
-            <td>
-                Titulo
-            </td>
-            <td>
-                Observação                
-            </td>
-            <td>
-                URL do Perfil
-            </td>
-            <td>
-                URL do Repositorio                
-            </td>
-        </tr>
-        <tr th:each="projeto: ${projetos}" th:object="${projeto}">
-            <td th:text="*{id}"></td>
-            <th th:text="*{titulo}"></th>
-            <th th:text="*{obs}"></th>
-            <th th:text="*{urlPerfil}"></th>
-            <th th:text="*{urlRepositorio}"></th>
-            <th><a th:href="@{./editar/{id}(id=*{id})}">Editar</a></th>
-            <th><a th:href="@{./excluir/{id}(id=*{id})}">Excluir</a></th>
-        </tr>
-    </table>
-    
+    <center>
+        <table border="">
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Titulo
+                </td>
+                <td>
+                    URL do Perfil
+                </td>
+                <td>
+                    URL do Repositorio                
+                </td>
+                <td>Observações</td>
+                <td colspan="4">
+                    <center>Opções</center>
+                </td>
+            </tr>
+            <tr th:each="projeto: ${projetos}" th:object="${projeto}">
+                <td th:text="*{id}"></td>
+                <th th:text="*{titulo}"></th>
+                <th th:text="*{urlPerfil}"></th>
+                <th th:text="*{urlRepositorio}"></th>
+                <th>
+                    <ul th:each="observacao: ${observacoes}" th:object="${observacao}">
+                        <li th:text="*{nome}"></li>
+                    </ul>
+                </th>
+                <th><a th:href="@{./detalharProjeto/{id}(id=*{id})}">Detalhes</a></th>
+                <th><a th:href="@{./cadastrarObservacaoProjeto/{id}(id=*{id})}">+Observação</a></th>
+                <th><a th:href="@{./editarprojeto/{id}(id=*{id})}">Editar</a></th>
+                <th><a th:href="@{./excluirprojeto/{id}(id=*{id})}">Excluir</a></th>
+            </tr>
+        </table>
+    </center>
 </body>
 
 </html>

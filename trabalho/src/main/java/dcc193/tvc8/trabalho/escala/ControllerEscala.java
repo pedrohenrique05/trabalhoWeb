@@ -100,4 +100,16 @@ public class ControllerEscala {
         }
         return mv;
     }
+    @RequestMapping({"/listarObs.html"})
+    public ModelAndView getController() {
+        ModelAndView mv = new ModelAndView("escala-listar");
+        mv.addObject("mensagem", "Cadastro de Escala!");
+        List<Escala> esc1 = rep.findAll();
+        mv.addObject("escalas", esc1);
+        mv.setViewName("redirect:../observacao/listarEscala.html");
+        return mv;
+    }
+
+    
+    
 }

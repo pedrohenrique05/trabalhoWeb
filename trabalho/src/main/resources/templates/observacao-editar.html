@@ -9,9 +9,17 @@
     
     <center><h1>Edição de Observação!</h1></center>
 
-    <form th:action="@{../editar/{id}(id=*{id})}" method="post" th:object="${observacao}">
+    <form th:action="@{../editarobservacao/{id}(id=*{id})}" method="post" th:object="${observacao}">
         <input type="hidden"  th:field="*{id}"/>
         <table>
+            <tr>
+                <td>
+                    ID Projeto
+                </td>
+                <td>
+                    <input type="number" id="idProjeto" th:field="*{idProjeto}" readonly />
+                </td>
+            </tr>
             <tr>
                 <td>
                     Nome

@@ -11,7 +11,7 @@
     
 
     <center><h1>Novo Projeto</h1></center>
-    <form th:action="@{cadastrar.html}" method="post" th:object="${projeto}" >
+    <form th:action="@{cadastrarprojeto.html}" method="post" th:object="${projeto}" >
         <table>
             <tr>
                 <td>
@@ -20,15 +20,6 @@
                 <td>
                     <input type="text" th:field="*{titulo}"/>
                     <strong th:if="${#fields.hasErrors('titulo')}" th:erros="*{titulo}"></strong>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Observação
-                </td>
-                <td>
-                    <input type="text" th:field="*{obs}"/>
-                    <strong th:if="${#fields.hasErrors('obs')}" th:erros="*{obs}"></strong>
                 </td>
             </tr>
             <tr>
@@ -52,7 +43,7 @@
             <tr>
                 <td colspan="2">
                     <center>
-                        <input type="submit"/>
+                        <input type="submit"/ value="Apenas Salvar">
                     </center>
                 </td>
             </tr>
