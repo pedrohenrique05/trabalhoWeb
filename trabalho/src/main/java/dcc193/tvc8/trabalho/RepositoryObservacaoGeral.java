@@ -12,9 +12,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepositoryObservacaoGeral extends JpaRepository<ObservacaoGeral, Long> {
     
-    @Query(value = "SELECT * FROM ObservacaoGeral  WHERE idProjeto=?id" , nativeQuery = true)
-    List<ObservacaoGeral> listarObservacoes(@Param("id")Long id);
+    @Query(value="SELECT obs.* FROM ObservacaoGeral obs WHERE obs.idProjeto=(?idprojeto)", nativeQuery = true)
+    List<ObservacaoGeral> listarObservacoes(@Param("idprojeto") Long idProjeto);
     
 
-   
+   // @Query( value = "select * from minhas_receitas where (MONTH(data_receita) = 
+    //?1 and YEAR(data_receita) = ?2) or (usuario_id = ?3) ",
+    //        nativeQuery = true
+    //)
+    //List<MinhasReceitas> buscarPorAnoByUsuario(String mes, String ano, Long usuarioId);
 }

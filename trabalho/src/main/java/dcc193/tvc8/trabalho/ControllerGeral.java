@@ -116,13 +116,16 @@ public class ControllerGeral {
     public ModelAndView listarProjetoDetalhado(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView("projeto-listar");
         //ObservacaoGeral obs = new ObservacaoGeral();
+        System.out.println("Chamando a consulta: "+id);
         List<ObservacaoGeral> obs = repObs.listarObservacoes(id);
-        if(obs.size() == 0){
+        if(obs.size() != 0){
+            System.out.println("consulta válida");
             mv.addObject("observacoes", obs);
             //List<ProjetoGeral> pro = repProj.findAll();
             //mv.addObject("projetos", pro);
             return mv;    
         }else{
+            System.out.println("consulta vazia");
             mv.setViewName("redirect:../listarprojeto.html");
             return mv;
         }
